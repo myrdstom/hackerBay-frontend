@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from './components/GridSystem/containers/Grid';
+import Grid from './components/GridSystem/containers/GridView';
 
 function App() {
   return (
