@@ -14,18 +14,25 @@ class Grid extends React.Component {
     }
 
     getValue = message => {
-        let value = parseInt(prompt(message));
-        if (!value) {
-            alert('please provide a valid integer');
-            value = prompt(message);
+        let input = parseInt(prompt(message));
+        if (input === null) {
+            return;
         }
-        return value;
+
+        if (typeof input === 'string') {
+            alert('please provide a valid integer');
+            input = prompt(message);
+        }
+
+        return input;
     };
     render() {
         const { rows, columns } = this.state;
         return (
-            <div className="game__area">
-                <Table width={rows} height={columns} />
+            <div>
+                <div className="game__area">
+                    <Table width={rows} height={columns} />
+                </div>
             </div>
         );
     }

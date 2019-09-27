@@ -1,13 +1,18 @@
 import React from "react";
 import Square from "./sqaure";
 
+
+const randomize = items => {
+    return Math.floor(Math.random() * items);
+};
+
 const Table = ({ width, height }) => {
   const rows = [];
   for (let i = 0; i < height; i++) {
     rows.push(
       <tbody key={i}>
         <tr key={i}>
-          <Square width={width}/>
+            <Square width={width} />
         </tr>
       </tbody>
     );
