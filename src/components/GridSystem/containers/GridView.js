@@ -1,16 +1,17 @@
-import React from 'react';
-import Table from '../component/table';
+import React, {Component} from 'react';
+import Grid from '../component/Grid'
 
-class Grid extends React.Component {
+class GridView extends Component {
     state = {
         rows: 0,
         columns: 0,
+        count: 0
     };
 
     componentDidMount() {
         const columns = this.getValue('please enter a board height');
         const rows = this.getValue('please enter a board width');
-        this.setState({ columns, rows });
+        this.setState({columns, rows});
     }
 
     getValue = message => {
@@ -21,14 +22,20 @@ class Grid extends React.Component {
         }
         return value;
     };
+
     render() {
-        const { rows, columns } = this.state;
+        const {rows, columns} = this.state;
         return (
             <div className="game__area">
-                <Table width={rows} height={columns} />
+                <Grid
+                    rows={rows}
+                    columns={columns}
+                />
             </div>
         );
     }
+
 }
 
-export default Grid;
+
+export default GridView;
